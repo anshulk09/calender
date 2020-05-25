@@ -7,7 +7,6 @@ export default function TimeLine(props) {
   const [isVisible, setVisible] = useState(false);
   const openModal = (e) => {
     e.stopPropagation();
-    console.log(isVisible);
     setVisible(true);
   };
   const hideModal = (e) => {
@@ -61,7 +60,8 @@ export default function TimeLine(props) {
                   <div className='text-lg font-bold mb-3'>{item.title}</div>
                   <p className='text-xs font-bold mb-3'>
                     {props.weekday},{' ' + props.month + ' ' + props.day + ' '}
-                    {props.time} at
+                    at
+                    {' ' + props.time}
                   </p>
                   <div className='text-xs text-green-300 font-bold mb-4'>
                     Repeats every day
