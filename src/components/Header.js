@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import '../../src/tailwind.generated.css';
 import Data from './test.json';
+import TimeLine from './TimeLine';
 
 export default class Header extends Component {
   constructor(props) {
@@ -102,7 +103,6 @@ export default class Header extends Component {
     index = index.map((item) => {
       return this.state.currentWeek.findIndex((i) => i == item);
     });
-    console.log(index);
     for (let i = 0; i < timeArr.length * 8; i++) {
       blank.push(
         <div
@@ -116,68 +116,13 @@ export default class Header extends Component {
     blank.forEach((item, i) => {
       if (i % 8 !== 0) {
         cells.push(
-          <div
-            className={
-              weekdayshort[(i % 8) - 1] == 'Sunday' ||
-              weekdayshort[(i % 8) - 1] == 'Saturday' ||
-              (timeArr[parseInt(i / 8)] != '9 AM' &&
-                timeArr[parseInt(i / 8)] != '10 AM' &&
-                timeArr[parseInt(i / 8)] != '11 AM' &&
-                timeArr[parseInt(i / 8)] != '12 PM' &&
-                timeArr[parseInt(i / 8)] != '2 PM' &&
-                timeArr[parseInt(i / 8)] != '3 PM' &&
-                timeArr[parseInt(i / 8)] != '4 PM' &&
-                timeArr[parseInt(i / 8)] != '5 PM')
-                ? 'flex-1 bg-gray-200 h-16 mr-2 border rounded grid text-enter'
-                : 'flex-1 bg-purple-100 h-16 mr-2 border border-purple-500 rounded grid text-enter'
-            }
+          <TimeLine
             key={Math.random()}
-          >
-            <p
-              className={
-                weekdayshort[(i % 8) - 1] == 'Sunday' ||
-                weekdayshort[(i % 8) - 1] == 'Saturday' ||
-                (timeArr[parseInt(i / 8)] != '9 AM' &&
-                  timeArr[parseInt(i / 8)] != '10 AM' &&
-                  timeArr[parseInt(i / 8)] != '11 AM' &&
-                  timeArr[parseInt(i / 8)] != '12 PM' &&
-                  timeArr[parseInt(i / 8)] != '2 PM' &&
-                  timeArr[parseInt(i / 8)] != '3 PM' &&
-                  timeArr[parseInt(i / 8)] != '4 PM' &&
-                  timeArr[parseInt(i / 8)] != '5 PM')
-                  ? 'text-xs text-center text-gray-400 font-bold'
-                  : 'text-xs text-center text-purple-300 font-bold'
-              }
-            >
-              {timeArr[parseInt(i / 8)].split(' ')[0] +
-                timeArr[parseInt(i / 8)].split(' ')[1].toLocaleLowerCase()}
-              <br></br>
-              {weekdayshort[(i % 8) - 1] == 'Sunday' ||
-              weekdayshort[(i % 8) - 1] == 'Saturday' ||
-              (timeArr[parseInt(i / 8)] != '9 AM' &&
-                timeArr[parseInt(i / 8)] != '10 AM' &&
-                timeArr[parseInt(i / 8)] != '11 AM' &&
-                timeArr[parseInt(i / 8)] != '12 PM' &&
-                timeArr[parseInt(i / 8)] != '2 PM' &&
-                timeArr[parseInt(i / 8)] != '3 PM' &&
-                timeArr[parseInt(i / 8)] != '4 PM' &&
-                timeArr[parseInt(i / 8)] != '5 PM')
-                ? 'Blocked'
-                : Object.entries(Data).map(([key, value]) => {
-                    return this.state.currentWeek.map((item, index) => {
-                      if (key == item) {
-                        console.log(key, item, i);
-                        if (i == index + 1 + 8) {
-                          return value.map((itm) => {
-                            if (itm.time == timeArr[parseInt(i / 8)])
-                              return itm.title;
-                          });
-                        }
-                      }
-                    });
-                  })}
-            </p>
-          </div>
+            time={timeArr[parseInt(i / 8)]}
+            day={this.state.currentWeek[parseInt(i % 8) - 1]}
+            weekday={weekdayshort[parseInt(i % 8) - 1]}
+            month={moment().format('MMMM')}
+          />
         ); // if index not equal 7 that means not go to next week
       } else {
         rows.push(cells); // when reach next week we contain all td in last week to rows
