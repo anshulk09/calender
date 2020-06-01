@@ -94,70 +94,7 @@ export default function TimeLine(props) {
             );
           }
         });
-      } else {
-        // return 'unused';
       }
     });
   }
-
-  //   className={
-  //     weekdayshort[(i % 8) - 1] == 'Sunday' ||
-  //     weekdayshort[(i % 8) - 1] == 'Saturday' ||
-  //     (timeArr[parseInt(i / 8)] != '9 AM' &&
-  //       timeArr[parseInt(i / 8)] != '10 AM' &&
-  //       timeArr[parseInt(i / 8)] != '11 AM' &&
-  //       timeArr[parseInt(i / 8)] != '12 PM' &&
-  //       timeArr[parseInt(i / 8)] != '2 PM' &&
-  //       timeArr[parseInt(i / 8)] != '3 PM' &&
-  //       timeArr[parseInt(i / 8)] != '4 PM' &&
-  //       timeArr[parseInt(i / 8)] != '5 PM')
-  //       ? 'flex-1 bg-gray-200 h-16 mr-2 border rounded grid text-enter'
-  //       : 'flex-1 bg-purple-100 h-16 mr-2 border border-purple-500 rounded grid text-enter'
-  //   }
-  //   key={Math.random()}
-  // >
-  //   <p
-  //     className={
-  //       weekdayshort[(i % 8) - 1] == 'Sunday' ||
-  //       weekdayshort[(i % 8) - 1] == 'Saturday' ||
-  //       (timeArr[parseInt(i / 8)] != '9 AM' &&
-  //         timeArr[parseInt(i / 8)] != '10 AM' &&
-  //         timeArr[parseInt(i / 8)] != '11 AM' &&
-  //         timeArr[parseInt(i / 8)] != '12 PM' &&
-  //         timeArr[parseInt(i / 8)] != '2 PM' &&
-  //         timeArr[parseInt(i / 8)] != '3 PM' &&
-  //         timeArr[parseInt(i / 8)] != '4 PM' &&
-  //         timeArr[parseInt(i / 8)] != '5 PM')
-  //         ? 'text-xs text-center text-gray-400 font-bold'
-  //         : 'text-xs text-center text-purple-300 font-bold'
-  //     }
-  //   >
-  //     {timeArr[parseInt(i / 8)].split(' ')[0] +
-  //       timeArr[parseInt(i / 8)].split(' ')[1].toLocaleLowerCase()}
-  //     <br></br>
-  //     {weekdayshort[(i % 8) - 1] == 'Sunday' ||
-  //     weekdayshort[(i % 8) - 1] == 'Saturday' ||
-  //     (timeArr[parseInt(i / 8)] != '9 AM' &&
-  //       timeArr[parseInt(i / 8)] != '10 AM' &&
-  //       timeArr[parseInt(i / 8)] != '11 AM' &&
-  //       timeArr[parseInt(i / 8)] != '12 PM' &&
-  //       timeArr[parseInt(i / 8)] != '2 PM' &&
-  //       timeArr[parseInt(i / 8)] != '3 PM' &&
-  //       timeArr[parseInt(i / 8)] != '4 PM' &&
-  //       timeArr[parseInt(i / 8)] != '5 PM')
-  //       ? 'Blocked'
-  //       : Object.entries(Data).map(([key, value]) => {
-  //           return this.state.currentWeek.map((item, index) => {
-  //             if (key == item) {
-  //               console.log(key, item, i);
-  //               if (i == index + 1 + 8) {
-  //                 return value.map((itm) => {
-  //                   if (itm.time == timeArr[parseInt(i / 8)])
-  //                     return itm.title;
-  //                 });
-  //               }
-  //             }
-  //           });
-  //         })}
-  //   </p>
 }

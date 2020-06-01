@@ -123,19 +123,18 @@ export default class Header extends Component {
             weekday={weekdayshort[parseInt(i % 8) - 1]}
             month={moment().format('MMMM')}
           />
-        ); // if index not equal 7 that means not go to next week
+        );
       } else {
-        rows.push(cells); // when reach next week we contain all td in last week to rows
+        rows.push(cells);
         cells = [];
-        // empty container
+
         cells.push(
           <div className='flex-1 font-bold' key={Math.random()}>
             <p className='text-center mt-3'>{timeArr[i / 8]}</p>
           </div>
-        ); // in current loop we still push current row to new container
+        );
       }
       if (i === blank.length - 1) {
-        // when end loop we add remain date
         rows.push(cells);
       }
     });
